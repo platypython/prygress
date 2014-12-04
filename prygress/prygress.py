@@ -2,17 +2,17 @@ import sys
 import time
 import threading
 
-class progress_bar(threading.Thread):
+class ProgressBar(threading.Thread):
     """Draw the dots, bar, or whatever"""
     def run(self):
-        while stop != True:
+        while not stop:
             sys.stdout.write('.')
             sys.stdout.flush()
             time.sleep(0.2)
 
-        if kill == True:
+        if kill:
             print '\b\b\b\b aborted by keystroke!',
-        elif has_error == True:
+        elif has_error:
             print '\b\b\b\b program error...'
         else:
             print '\b\b finished.',
@@ -27,7 +27,7 @@ def progress(function):
         has_error = False
         kill = False
         stop = False
-        p = progress_bar()
+        p = ProgressBar()
         p.start()
 
         try:
@@ -40,13 +40,9 @@ def progress(function):
             stop = True
             has_error = True
             time.sleep(1)
-            print "\n" + str(e)
+            print
+            print e
 
         return ran
 
     return wrap_function
-
-
-
-
-
