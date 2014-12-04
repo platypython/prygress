@@ -3,11 +3,10 @@ import time
 import threading
 
 class progress_bar(threading.Thread):
-     """Draw the dots, bar, or whatever"""
-
+    """Draw the dots, bar, or whatever"""
     def run(self):
         while stop != True:
-            sys.stdout.write('.'),
+            sys.stdout.write('.')
             sys.stdout.flush()
             time.sleep(0.2)
 
