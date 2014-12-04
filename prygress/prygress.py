@@ -17,9 +17,9 @@ class progress_bar(threading.Thread):
         else:
             print '\b\b finished.',
 
+
 def progress(function):
     """Shows a progress bar while a function runs."""
-
     def wrap_function(*args):
         global stop
         global kill
