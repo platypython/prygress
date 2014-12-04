@@ -10,38 +10,23 @@ class ProgressBar(threading.Thread):
             sys.stdout.flush()
             time.sleep(0.2)
 
-        if kill:
-            print '\b\b\b\b aborted by keystroke!',
-        elif has_error:
-            print '\b\b\b\b program error...'
-        else:
-            print '\b\b finished.',
+        print '\b\b finished.',
 
 
 def progress(function):
     """Shows a progress bar while a function runs."""
     def wrap_function(*args):
         global stop
-        global kill
-        global has_error
-        has_error = False
-        kill = False
         stop = False
         p = ProgressBar()
         p.start()
 
         try:
             ran = function(*args)
+        except:
+            raise
+        finally:
             stop = True
-        except KeyboardInterrupt:
-            kill = True
-            stop = True
-        except Exception as e:
-            stop = True
-            has_error = True
-            time.sleep(1)
-            print
-            print e
 
         return ran
 
