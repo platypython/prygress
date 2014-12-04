@@ -1,1 +1,1 @@
-from .prygress import *
+from .prygress import progress
