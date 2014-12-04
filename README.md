@@ -13,6 +13,6 @@ Give yourself something to watch while your long calls are made. Add the '@progr
 	
 	wait_with_me()
 
-
+I'm sure there are bugs, do me a **HUGE** favor and report them!
 
 > Written with [StackEdit](https://stackedit.io/).
