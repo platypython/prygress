@@ -1,10 +1,12 @@
 import sys
 import time
 import threading
+from functools import wraps
 
 def progress(function):
     """Shows a progress bar while a function runs."""
-    def wrap_function(*args):
+    @wraps(function)
+    def wrap_function(*args, **kwargs):
         stop = False
 
         def progress_bar():
@@ -17,7 +19,7 @@ def progress(function):
         try:
             p = threading.Thread(target=progress_bar)
             p.start()
-            return function(*args)
+            return function(*args, **kwargs)
         finally:
             stop = True
             # p.join()
