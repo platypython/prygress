@@ -12,6 +12,7 @@ Give yourself something to watch while your long calls are made. Add the '@progr
 	    sleep(10)
 	
 	wait_with_me()
+    ................................................ finished.
 
 I'm sure there are bugs, do me a **HUGE** favor and report them!
 
