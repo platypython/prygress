@@ -31,7 +31,7 @@ def progress(function):
         p.start()
 
         try:
-            function(*args)
+            ran = function(*args)
             stop = True
         except KeyboardInterrupt:
             kill = True
@@ -41,6 +41,8 @@ def progress(function):
             has_error = True
             time.sleep(1)
             print "\n" + str(e)
+
+        return ran
 
     return wrap_function
 
