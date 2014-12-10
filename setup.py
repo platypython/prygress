@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='prygress',
-      version='0.1',
+      version='0.2',
       description='Threaded progress bar for running functions',
       url='http://github.com/dboudwin/prygress',
       author='Derrick Boudwin',

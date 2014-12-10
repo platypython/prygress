@@ -4,6 +4,11 @@ A threaded progress decorator for python functions.
 
 Give yourself something to watch while your long calls are made. Add the '@progress' decorator to your functions, thats it!
 
+Install it with pip
+    pip install prygress
+
+example
+
     from prygress import progress
     from time import sleep
     
@@ -14,6 +19,8 @@ Give yourself something to watch while your long calls are made. Add the '@progr
 	wait_with_me()
     ................................................ finished.
 
-I'm sure there are bugs, do me a **HUGE** favor and report them!
+To customize your bar, just add one or all of these params to the decorator:
+
+    @progress(char='.', pause=0.2)
 
 > Written with [StackEdit](https://stackedit.io/).
