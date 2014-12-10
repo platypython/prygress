@@ -5,6 +5,7 @@ A threaded progress decorator for python functions.
 Give yourself something to watch while your long calls are made. Add the '@progress' decorator to your functions, thats it!
 
 Install it with pip
+
     pip install prygress
 
 example
