@@ -18,7 +18,7 @@ def progress(function=None, stream=sys.stdout, char='.', pause=0.2):
                 stream.flush()
                 time.sleep(pause)
             stream.write('\b\b finished.')
-            stream.flush
+            stream.flush()
         
         try:
             p = threading.Thread(target=progress_bar)
