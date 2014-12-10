@@ -3,18 +3,22 @@ import time
 import threading
 from functools import wraps
 
-def progress(function):
+def progress(function=None, stream=sys.stdout, char='.', pause=0.2):
     """Shows a progress bar while a function runs."""
+    if function is None:
+        return lambda func: progress(func, stream, char, pause)
+
     @wraps(function)
     def wrap_function(*args, **kwargs):
         stop = False
 
         def progress_bar():
             while not stop:
-                sys.stdout.write('.')
-                sys.stdout.flush()
-                time.sleep(0.2)
-            print '\b\b finished.',
+                stream.write(char)
+                stream.flush()
+                time.sleep(pause)
+            stream.write('\b\b finished.')
+            stream.flush()
         
         try:
             p = threading.Thread(target=progress_bar)
