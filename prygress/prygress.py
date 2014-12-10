@@ -22,6 +22,5 @@ def progress(function):
             return function(*args, **kwargs)
         finally:
             stop = True
-            # p.join()
 
     return wrap_function
